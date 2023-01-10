@@ -12,7 +12,7 @@ include_once 'components/header.php';
                     echo '<script>alert("Den valgte tid er ikke længere ledig")</script>';
                 }
                 else if ($_GET["error"] == "incorrectNumber") {
-                    echo '<script>alert("Telefon nummer skal kun bestå af 8 tal, uden mellemrum")</script>';
+                    echo '<script>alert("Telefon nummer skal bestå af 8 tal, uden mellemrum")</script>';
                 } 
         }
 
