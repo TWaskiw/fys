@@ -17,6 +17,10 @@ $number = $_REQUEST["number"];
     header('location: kalender.php?error=emptyField');
     exit();
 }
+if(numberCount($number) == true) {
+    header('location: kalender.php?error=incorrectNumber');
+    exit();
+}
 
 
 // Inden vi godkender bestillingen, går vi ind og tjekker igen om tiden allerede er bestilt. En sikkerhedsforanstaltning HVIS en anden bruger, skulle have bokket et par sekunder før f.eks.
