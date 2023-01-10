@@ -70,7 +70,6 @@ function kalender($month, $year) {
         $date = "$year-$month-$currentDayPadded";
 
         // Vi printer enten dagens dato eller en normal celle.
-         
         if($dateToday==$date){
             $kalender.= "<td><a class='today' value='tider' onclick='callAPI('ledigetider', '$date')' href='kalender.php?date=$date'>$currentDay</a></td>";
         } else if ($date>$dateToday) { 
@@ -105,13 +104,17 @@ $dateComponents = getdate();
 $month = $dateComponents['mon'];
 $year =  $dateComponents['year'];
 
-echo  kalender($month, $year);
+echo kalender($month, $year);
 ?>
+
+
+
+
 
 
 <?php 
 
-
+/* Hvis en dato er blevet valgt, kører hele denne isset */
 if(isset($_REQUEST["date"])){
     $_SESSION['dato'] = $_REQUEST["date"];
 $dato = $_SESSION['dato'];
@@ -164,17 +167,21 @@ $ledigetider = "<div class='ledigetider'>";
         $ledigetider.="<a class='ledigtid' href='kalender.php?date=$dato&tid=$timeslot3'>$timeslot3</a>";
             $_SESSION['tid'] = $timeslot3;
     }
-    if(isset($_REQUEST["tid"])){
-    $_SESSION['tid'] = $_REQUEST["tid"];
-    $tid = $_SESSION['tid'];}
+
     echo $ledigetider;
 }
+
+
+
+
+
 $ledigetider = "</div>";
 echo $ledigetider;
+
 if(isset($_REQUEST["tid"])){
     $_SESSION['tid'] = $_REQUEST["tid"];
-$tidspunkt = $_SESSION['tid'];
-echo "<p class='valgtDato'>Klokken $tidspunkt</p><br>";} 
+$tid = $_SESSION['tid'];
+echo "<p class='valgtDato'>Klokken $tid</p><br>";} 
 else {
         unset($_SESSION['tid']);
 }

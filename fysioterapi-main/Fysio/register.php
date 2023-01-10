@@ -2,8 +2,8 @@
     include("mysql.php");
     session_start();
     include_once 'components/header.php'; 
-    if(isset($_SESSION['id'])) {
-    header('location: welcome.php?status=loggedin');
+    if(isset($_SESSION['number'])) {
+    header('location: profil.php?status=loggedin');
     exit; 
     }
 
